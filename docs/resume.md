@@ -79,7 +79,7 @@
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">Insignia Ltd.</span>
+      <span class="timeline-org">Insignia</span>
       <span class="timeline-role">Junior Business Analyst</span>
       <span class="timeline-dates">Jul 2024 – Sep 2024</span>
     </div>
