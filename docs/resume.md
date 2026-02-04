@@ -48,7 +48,7 @@
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">University of Malta - EMRG</span>
+      <span class="timeline-org">University of Malta (Electromagnetics Research Group)</span>
       <span class="timeline-role">Research Assistant</span>
       <span class="timeline-dates">Jun 2025 - Sep 2025</span>
     </div>
@@ -68,7 +68,7 @@
   <div class="timeline-item">
     <span class="timeline-dot"></span>
     <div class="timeline-header">
-      <span class="timeline-org">University of Malta - EMRG</span>
+      <span class="timeline-org">University of Malta (Electromagnetics Research Group)</span>
       <span class="timeline-role">Lab Assistant</span>
       <span class="timeline-dates">Jul 2022 – Sep 2022</span>
     </div>
