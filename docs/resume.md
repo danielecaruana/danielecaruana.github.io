@@ -62,7 +62,7 @@
       <span class="timeline-role">Junior Assistant | Data Engineer</span>
       <span class="timeline-dates">Jun 2023 – Sep 2023</span>
     </div>
-    <div class="timeline-desc">Automating and analysing financial data processing and extraction.</div>
+    <div class="timeline-desc">Automation and analysing financial data.</div>
   </div>
 
   <div class="timeline-item">
