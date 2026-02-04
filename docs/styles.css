@@ -38,7 +38,7 @@ html {
 
 /* Base typography */
 body {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: 'Ubuntu', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
