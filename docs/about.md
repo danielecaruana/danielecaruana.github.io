@@ -29,7 +29,7 @@
   </div>
 </div>
 
-Hi! I'm Daniele. I am an MSc research student in Quantum Optics with the University of Malta's Quantumalta Group, supervised by Prof. André Xuereb. I'm currently working as a Research Officer in <a href="https://senseiproject.eu/">Project SENSEI</a>, focusing on metrological and signal processing techniques for geophysical applications. In addition, I serve as a teaching assistant and laboratory demonstrator in Experimental Physics.
+Hi! I'm Daniele. I am an MSc research student in Quantum Optics with the University of Malta's Quantumalta Group, supervised by Prof. André Xuereb. I'm currently working as a Research Officer in <a href="https://senseiproject.eu/">Project SENSEI</a>, focusing on metrological and signal processing techniques for geophysical applications. I also serve as a teaching assistant and laboratory demonstrator in Experimental Physics.
 
 More generally, I'm interested in the applications of precision measurement, quantum-enchanced sensing, and other sensing techniques in optics and instrumentation in different industries and research areas from fundamental physics, geophysics, and precision measurement applications. I also find interdisciplinary applications, such as in archaeology, frankly, really cool.
  
