@@ -15,7 +15,7 @@
         <div class="publication-tags">
             <span class="tag tag-safety">Seismic Sensing</span>
             <a href="" class="tag tag-arxiv">
-            PREPRINT COMING SOON!</a>
+            Preprint coming soon!</a>
         </div>
     </div>
 </div>
