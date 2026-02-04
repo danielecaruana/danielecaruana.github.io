@@ -1,5 +1,5 @@
 <div class="about-header">
-  <img src="assets/profile.jpg" alt="Portrait of J Rosser" class="about-avatar" width="160" height="160" loading="lazy" />
+  <img src="assets/profile.png" alt="Portrait of D Caruana" class="about-avatar" width="160" height="160" loading="lazy" />
   <div class="about-header-content">
     <div class="about-socials" style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;margin-top:0.5rem;">
   <a href="https://scholar.google.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;color:var(--color-accent-2);">
