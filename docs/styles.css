@@ -235,10 +235,13 @@ body {
 .hero-visual-container {
     position: relative;
     width: 100%;
-    /* Reduced drastically to make it a sleek, secondary element */
     max-width: 180px; 
     margin: 0 auto;
+    
+    /* Force exact square and prevent flexbox from squishing it */
     aspect-ratio: 1 / 1;
+    flex-shrink: 0; 
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,7 +249,7 @@ body {
 
 .frosted-backdrop {
     position: absolute;
-    inset: 0%; /* Tightened the glow to match the smaller size */
+    inset: 0; 
     border-radius: 50%;
     background: var(--accent-soft);
     filter: blur(30px);
@@ -259,13 +262,19 @@ body {
     position: relative;
     z-index: 10;
     width: 100%;
-    aspect-ratio: 1 / 1;
-    /* 50% border-radius for a perfect circle frame */
+    height: 100%; /* Match container exactly */
+    
+    /* The Circle Shape */
     border-radius: 50%; 
     overflow: hidden;
+    
     border: 1px solid var(--border);
     background: var(--surface-1);
     box-shadow: 0 10px 25px -10px rgba(0,0,0,0.3);
+    
+    /* Safari specific fix to prevent corners bleeding during hover zoom */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    isolation: isolate;
 }
 
 .hero-image {
@@ -273,6 +282,10 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    
+    /* Force the image tag itself to be a circle as a fallback */
+    border-radius: 50%; 
+    
     filter: grayscale(15%);
     transition: filter 0.3s ease, transform 0.5s ease;
 }
