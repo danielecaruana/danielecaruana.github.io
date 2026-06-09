@@ -233,8 +233,8 @@ body {
 /* Hero Visual Container */
 .hero-visual-container {
     position: relative;
-    width: 280px; /* Force this size */
-    height: 280px; /* Force this size */
+    width: 350px; /* Force this size */
+    height: 350px; /* Force this size */
     margin: 0 auto;
     flex-shrink: 0;
     display: flex;
