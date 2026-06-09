@@ -33,11 +33,7 @@ html {
     --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.12);
 
-    --surface-border: color-mix(in srgb, var(--color-border) 85%, transparent);
-
     --surface-0: transparent;
-    --surface-1: color-mix(in srgb, var(--color-global-bg) 94%, white);
-    --surface-2: color-mix(in srgb, var(--color-global-bg) 88%, white);
 
     /* ===== Legacy mapping ===== */
     --color-global-bg: var(--bg);
@@ -48,9 +44,6 @@ html {
     --color-border: var(--border);
     --color-card-bg: var(--surface-1);
     --color-shadow: var(--shadow);
-}
-
-    --color-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Dark theme colors */
@@ -73,8 +66,6 @@ html {
 
     --surface-border: color-mix(in srgb, var(--color-border) 70%, transparent);
 
-    --surface-1: rgba(31, 41, 55, 0.55);
-    --surface-2: rgba(31, 41, 55, 0.75);
 }
 
 /* Base typography */
@@ -283,8 +274,8 @@ body {
     max-width: 57.6rem; /* Same as max-w-3xl */
     width: 100%;
     background-color: color-mix(in srgb, var(--color-global-bg) 95%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
     z-index: 100;
     padding: 1rem 1rem 0.5rem 1rem; /* Match main content px-4 */
@@ -387,8 +378,8 @@ body {
         width: 100vw !important;
         height: 100vh !important;
         background-color: color-mix(in srgb, var(--color-global-bg) 98%, transparent) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
         z-index: 150 !important;
         display: none !important;
         flex-direction: column !important;
@@ -507,21 +498,17 @@ body {
     max-width: none; /* Allow prose to use full container width */
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-    color: var(--color-accent-2);
-    font-weight: 600;
-    line-height: 1.25;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.prose h1 { font-size: 2.25rem; }
-.prose h2 { font-size: 1.875rem; }
-.prose h3 { font-size: 1.5rem; }
-.prose h4 { font-size: 1.25rem; }
+.prose h1 { margin-top: 2.5rem; margin-bottom: 1rem; }
+.prose h2 { margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose h4 { margin-top: 1.25rem; margin-bottom: 0.5rem; }
+.prose h1 { font-size: 2rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.1rem; }
 
 .prose p {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .prose ul, .prose ol {
@@ -1015,17 +1002,10 @@ html {
     width: fit-content;
 }
 
-.publication-authors {
-    font-size: 0.875rem;
-    color: var(--color-global-text);
-    opacity: 0.8;
-}
-
+.publication-authors,
 .publication-year {
-    font-size: 0.875rem;
-    color: var(--color-global-text);
-    opacity: 0.6;
-    font-style: italic;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
 }
 
 .publication-description {
@@ -1251,7 +1231,7 @@ html {
 
 .timeline-meta {
     margin-top: 0.25rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: color-mix(in srgb, var(--color-accent-2) 75%, transparent);
 }
 
