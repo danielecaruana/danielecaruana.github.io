@@ -1,5 +1,5 @@
 /* ============================= */
-/* Base Reset                   */
+/* Base Reset                    */
 /* ============================= */
 
 * {
@@ -21,66 +21,57 @@ body {
     background-color: var(--bg);
     color: var(--text);
     padding-top: 8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ============================= */
-/* Design Tokens                */
+/* Design Tokens                 */
 /* ============================= */
 
 :root {
-    /* Surfaces */
+    /* Light Mode: Frosted Paper */
     --bg: oklch(98% 0.005 250);
-    --surface-1: oklch(96% 0.005 250);
-    --surface-2: oklch(93% 0.005 250);
+    --surface-1: color-mix(in srgb, oklch(95% 0.01 250) 60%, transparent);
+    --surface-2: color-mix(in srgb, oklch(90% 0.01 250) 70%, transparent);
     --surface-0: transparent;
 
-    /* Text */
-    --text: oklch(18% 0.01 250);
-    --text-muted: oklch(45% 0.01 250);
+    --text: oklch(20% 0.02 250);
+    --text-muted: oklch(50% 0.02 250);
 
-    /* Accent */
-    --accent: oklch(60% 0.20 270);
-    --accent-hover: oklch(66% 0.22 270);
+    /* Dusted Purple */
+    --accent: oklch(60% 0.15 300);
+    --accent-hover: oklch(50% 0.18 300);
     --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
 
-    /* UI */
-    --border: color-mix(in srgb, var(--text) 12%, transparent);
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
-    --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
-    --shadow-lg: 0 14px 30px rgba(0,0,0,0.12);
-
-    /* Aliases (legacy compatibility) */
-    --color-global-bg: var(--bg);
-    --color-global-text: var(--text);
+    --border: color-mix(in srgb, var(--text) 10%, transparent);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    
+    /* Aliases */
     --color-link: var(--accent);
-    --color-accent: var(--accent);
-    --color-accent-2: var(--text);
-    --color-border: var(--border);
-    --color-card-bg: var(--surface-1);
 }
 
-/* Dark theme override */
-
+/* Dark theme override: Frosted Slate */
 [data-theme="dark"] {
-    --bg: oklch(13% 0.01 260);
-    --surface-1: oklch(17% 0.01 260);
-    --surface-2: oklch(21% 0.01 260);
+    /* Deep cool slate */
+    --bg: oklch(16% 0.01 250); 
+    
+    /* Semi-transparent surfaces for glassmorphism */
+    --surface-1: color-mix(in srgb, oklch(22% 0.01 250) 40%, transparent);
+    --surface-2: color-mix(in srgb, oklch(28% 0.01 250) 50%, transparent);
 
-    --text: oklch(88% 0.01 260);
-    --text-muted: oklch(70% 0.01 260);
+    --text: oklch(92% 0.01 250);
+    --text-muted: oklch(65% 0.01 250);
 
-    --accent: oklch(72% 0.20 270);
-    --accent-hover: oklch(78% 0.22 270);
+    /* Lighter dusted purple for dark mode visibility */
+    --accent: oklch(75% 0.12 300);
+    --accent-hover: oklch(85% 0.15 300);
 
-    --border: color-mix(in srgb, white 10%, transparent);
-
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
-    --shadow-md: 0 8px 20px rgba(0,0,0,0.45);
-    --shadow-lg: 0 18px 40px rgba(0,0,0,0.55);
+    --border: color-mix(in srgb, white 8%, transparent);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================= */
-/* Utilities                    */
+/* Utilities                     */
 /* ============================= */
 
 .flex { display: flex; }
@@ -96,61 +87,68 @@ body {
 
 .font-bold { font-weight: 700; }
 .font-normal { font-weight: 400; }
+.font-light { font-weight: 300; }
 
 .rounded-md { border-radius: 0.375rem; }
+.rounded-lg { border-radius: 0.75rem; }
 
 .text-center { text-align: center; }
-
 .opacity-75 { opacity: 0.75; }
 
-.shadow {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-}
-
 /* ============================= */
-/* Layout Helpers               */
+/* Layout Helpers                */
 /* ============================= */
 
 .mx-auto { margin-left: auto; margin-right: auto; }
-
 .max-w-3xl { max-width: 57.6rem; }
-
 .px-4 { padding-inline: 1rem; }
 .px-8 { padding-inline: 2rem; }
-
 .py-4 { padding-block: 1rem; }
 .py-8 { padding-block: 2rem; }
-
 .mb-8 { margin-bottom: 2rem; }
 .mb-16 { margin-bottom: 4rem; }
 
 /* ============================= */
-/* Typography / Prose           */
+/* Typography / Prose            */
 /* ============================= */
 
 .prose {
     color: var(--text);
     max-width: none;
+    /* Use a serif for dense reading. Make sure to add this to your Google Fonts link! */
+    font-family: 'Crimson Pro', 'Merriweather', serif; 
+    font-size: 1.05rem;
 }
 
-.prose h1 { font-size: 2rem; margin: 2.5rem 0 1rem; }
-.prose h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; }
+.prose h1, .prose h2, .prose h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300; /* Minimalist Monolith vibe */
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+.prose h1 { font-size: 2.25rem; margin: 2.5rem 0 1rem; }
+.prose h2 { font-size: 1.75rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
 .prose h3 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; }
 
-.prose p { margin-bottom: 1rem; }
+.prose p { margin-bottom: 1.25rem; line-height: 1.7; color: var(--text-muted); }
 
 .prose a {
     color: var(--color-link);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.prose a:hover {
+    color: var(--accent-hover);
 }
 
 /* ============================= */
-/* Components                   */
+/* Components                    */
 /* ============================= */
 
 /* Header */
-
 #main-header {
     position: fixed;
     top: 0;
@@ -158,57 +156,71 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 57.6rem;
-    background: color-mix(in srgb, var(--bg) 95%, transparent);
-    backdrop-filter: blur(8px);
+    background: var(--surface-1); /* Frosted */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 0 0 1rem 1rem; /* Soften the bottom edges */
 }
 
-/* Cards */
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.header-title span {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* Glass Cards */
 .project-card,
 .resource-card,
 .publication-card {
     background: var(--surface-1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: 0.75rem;
+    padding: 1.5rem;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Buttons / links */
-
-.cactus-link {
-    color: var(--color-link);
-    text-decoration: underline;
+.publication-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
 }
 
 /* Navigation */
-
 .mobile-nav-menu {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.mobile-nav-menu a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-menu a:hover {
+    color: var(--text);
 }
 
 /* ============================= */
-/* Animations                  */
-/* ============================= */
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* ============================= */
-/* Responsive                  */
+/* Responsive                    */
 /* ============================= */
 
 @media (max-width: 640px) {
-    body { padding-top: 5rem; }
-
-    #main-header {
-        padding: 1rem;
-    }
-
+    body { padding-top: 6rem; }
+    #main-header { padding: 1rem; border-radius: 0; }
     .prose h1 { font-size: 1.875rem; }
     .prose h2 { font-size: 1.5rem; }
+    .mobile-nav-menu { gap: 1rem; font-size: 0.85rem; }
 }
