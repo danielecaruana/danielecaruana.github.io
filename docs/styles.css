@@ -235,7 +235,7 @@ body {
 .hero-visual-container {
     position: relative;
     width: 100%;
-    max-width: 180px; 
+    max-width: 380px; 
     margin: 0 auto;
     
     /* Force exact square and prevent flexbox from squishing it */
