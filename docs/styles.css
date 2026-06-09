@@ -235,13 +235,14 @@ body {
 .hero-visual-container {
     position: relative;
     width: 100%;
+    /* We allow it to be larger, but set a clear limit */
     max-width: 380px; 
     margin: 0 auto;
     
-    /* Force exact square and prevent flexbox from squishing it */
+    /* Force exact square */
     aspect-ratio: 1 / 1;
-    flex-shrink: 0; 
     
+    /* This ensures it fills the available grid column space */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,10 +250,11 @@ body {
 
 .frosted-backdrop {
     position: absolute;
-    inset: 0; 
+    /* Expanding this slightly beyond the container creates a larger glow */
+    inset: -10%; 
     border-radius: 50%;
     background: var(--accent-soft);
-    filter: blur(30px);
+    filter: blur(40px);
     z-index: -1;
     animation: pulse 6s infinite alternate ease-in-out;
 }
@@ -261,8 +263,10 @@ body {
 .profile-photo-wrapper {
     position: relative;
     z-index: 10;
+    
+    /* FORCE it to fill the parent container completely */
     width: 100%;
-    height: 100%; /* Match container exactly */
+    height: 100%;
     
     /* The Circle Shape */
     border-radius: 50%; 
@@ -272,7 +276,7 @@ body {
     background: var(--surface-1);
     box-shadow: 0 10px 25px -10px rgba(0,0,0,0.3);
     
-    /* Safari specific fix to prevent corners bleeding during hover zoom */
+    /* Safari fix */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
     isolation: isolate;
 }
@@ -283,16 +287,11 @@ body {
     object-fit: cover;
     display: block;
     
-    /* Force the image tag itself to be a circle as a fallback */
+    /* Force the image to be a circle */
     border-radius: 50%; 
     
     filter: grayscale(15%);
     transition: filter 0.3s ease, transform 0.5s ease;
-}
-
-.profile-photo-wrapper:hover .hero-image {
-    filter: grayscale(0%);
-    transform: scale(1.02);
 }
 
 @keyframes pulse {
