@@ -245,7 +245,7 @@ body {
 .frosted-backdrop {
     position: absolute;
     /* Expanding this slightly beyond the container creates a larger glow */
-    inset: -10%; 
+    inset: -30%; 
     border-radius: 50%;
     background: var(--accent-soft);
     filter: blur(40px);
