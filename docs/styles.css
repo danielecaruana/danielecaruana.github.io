@@ -235,9 +235,9 @@ body {
 .hero-visual-container {
     position: relative;
     width: 100%;
-    /* Reduced from 320px to 240px to balance with the 3rem title */
-    max-width: 240px; 
-    margin: 0 auto; /* Ensures it stays centered in its column */
+    /* Reduced drastically to make it a sleek, secondary element */
+    max-width: 180px; 
+    margin: 0 auto;
     aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
@@ -246,10 +246,10 @@ body {
 
 .frosted-backdrop {
     position: absolute;
-    inset: 5%; /* Adjusted slightly so the glow fits the new size better */
+    inset: 0%; /* Tightened the glow to match the smaller size */
     border-radius: 50%;
     background: var(--accent-soft);
-    filter: blur(35px);
+    filter: blur(30px);
     z-index: -1;
     animation: pulse 6s infinite alternate ease-in-out;
 }
@@ -260,7 +260,8 @@ body {
     z-index: 10;
     width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 1.5rem; /* Scaled down the border-radius slightly to match the smaller image */
+    /* 50% border-radius for a perfect circle frame */
+    border-radius: 50%; 
     overflow: hidden;
     border: 1px solid var(--border);
     background: var(--surface-1);
@@ -279,13 +280,6 @@ body {
 .profile-photo-wrapper:hover .hero-image {
     filter: grayscale(0%);
     transform: scale(1.02);
-}
-
-
-.hero-svg {
-    width: 100%;
-    height: 100%;
-    color: var(--text-muted);
 }
 
 @keyframes pulse {
