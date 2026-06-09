@@ -154,10 +154,12 @@ body {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: minmax(auto, 600px) 280px; /* Text takes space, photo stays fixed 280px */
+    /* Use '1fr auto' so the text fills the space but the photo stays its fixed size */
+    grid-template-columns: 1fr auto; 
     gap: 3rem;
     align-items: center;
-    justify-items: center; /* This ensures the photo stays centered in its column */
+    /* This centers the photo horizontally within its own grid cell */
+    justify-items: center; 
 }
 
 .hero-badge {
