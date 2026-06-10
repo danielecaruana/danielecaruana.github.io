@@ -195,15 +195,15 @@ body {
 .gap-6 { gap: 1.5rem; }
 
 
-.about-editorial-layout p {
-    text-align: left; /* Keeps your paragraphs easily readable */
-    font-size: 1.1rem; /* Slightly larger text to fill the space nicely */
-    line-height: 1.8;
-}
 .about-editorial-layout {
-    max-width: 48rem; 
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 48rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Centers the text inside your paragraphs */
+.about-editorial-layout p {
+    text-align: center !important;
 }
 
 /* Centers the title and removes the default line */
@@ -214,7 +214,7 @@ body {
     position: relative;
 }
 
-/* Adds the premium dusted purple accent underline directly under the title */
+/* Adds the accent underline directly under the title */
 .about-editorial-layout h2::after {
     content: '';
     position: absolute;
