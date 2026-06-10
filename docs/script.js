@@ -726,3 +726,56 @@ prefersReducedMotion.addEventListener('change', () => {
         document.documentElement.style.setProperty('scroll-behavior', 'smooth');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Start fetching data as soon as the page loads
+    fetchPublications();
+});
+
+async function fetchPublications() {
+    const container = document.getElementById('publications-content');
+
+    try {
+        // [Optional] FOR TESTING ONLY: Add a 1.5-second fake delay so you can 
+        // actually see your cool loading animation locally before it vanishes!
+        // await new Promise(resolve => setTimeout(resolve, 1500));
+
+        // 1. Fetch your data (replace 'data.json' with your actual API or file path)
+        const response = await fetch('data.json'); 
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const publications = await response.json();
+
+        // 2. Build the HTML string for your real cards
+        let htmlContent = '';
+        publications.forEach(pub => {
+            // Using your existing glass card classes!
+            htmlContent += `
+                <div class="publication-card mb-4">
+                    <h3 class="font-bold text-lg mt-0 mb-2">${pub.title}</h3>
+                    <p class="text-sm text-text-muted mb-2">${pub.authors}</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="hero-badge" style="margin-bottom: 0;">${pub.year}</span>
+                        <a href="${pub.url}" target="_blank" class="text-accent hover:text-accent-hover transition-colors text-sm font-bold">View Paper &rarr;</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        // 3. The Magic Step: Overwrite the loaders with the real content
+        container.innerHTML = htmlContent;
+
+    } catch (error) {
+        console.error("Failed to load publications:", error);
+        
+        // 4. Fallback if the network fails (replaces the loader with an error message)
+        container.innerHTML = `
+            <div class="p-4 border border-[var(--border)] rounded-md bg-[var(--surface-1)] text-center">
+                <p class="text-text-muted text-sm">Unable to load publications at this time.</p>
+            </div>
+        `;
+    }
+}
