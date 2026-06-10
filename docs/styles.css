@@ -74,7 +74,41 @@ body {
     --border: color-mix(in srgb, white 8%, transparent);
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
+/* ==========================================================================
+   OPTICAL RAIL SYSTEM
+   ========================================================================== */
 
+/* 1. Force the middle grid column to fill 100% of the section's height */
+.optical-rail-container {
+    display: flex;
+    justify-content: center;
+    align-self: stretch; /* Stretches the track top-to-bottom */
+    height: 100%;
+    width: 100%;
+}
+
+/* 2. Style the physical laser line */
+.laser-rail {
+    width: 2px; /* Thickness of your optical path */
+    height: 100%;
+    background-color: var(--border); /* Faint, dormant line color */
+    opacity: 0.4;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* 3. Handle the Left Column Sticky Title logic when grid items stretch */
+.sticky-title {
+    position: sticky;
+    top: 7rem; /* Pins the title neatly below your fixed header as you scroll */
+    align-self: start; /* Stops the title from stretching so it can actually float */
+}
+
+/* 4. The Glow Interaction on Section Hover */
+.group\/section:hover .laser-rail {
+    opacity: 1;
+    background-color: var(--accent); /* Lights up with your custom accent color */
+    box-shadow: 0 0 8px var(--accent), 0 0 15px var(--accent);
+}
 
 /* ========================================== */
 /* Elevating the Glassmorphism & Depth       */
