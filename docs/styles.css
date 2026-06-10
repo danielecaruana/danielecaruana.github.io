@@ -193,6 +193,14 @@ body {
 .gap-4 { gap: 1rem; }
 .gap-6 { gap: 1.5rem; }
 
+.about-header-accent h2 {
+    border-bottom: 2px solid var(--accent) !important;
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    width: 100%;
+}
+
 /* ============================= */
 /* Publications Section Matrix   */
 /* ============================= */
