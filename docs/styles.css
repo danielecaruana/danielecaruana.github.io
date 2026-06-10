@@ -456,7 +456,46 @@ body {
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.02em;
 }
+/* ============================= */
+/* Theme Toggle Button           */
+/* ============================= */
 
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--text);
+    background-color: var(--surface-2);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Logic: Show/Hide icons natively based on current theme attribute */
+html[data-theme="dark"] .sun-icon { display: block; }
+html[data-theme="dark"] .moon-icon { display: none; }
+
+html[data-theme="light"] .sun-icon { display: none; }
+html[data-theme="light"] .moon-icon { display: block; }
+
+/* Handle cases where data-theme isn't explicitly set yet (defaults to dark) */
+html:not([data-theme="light"]) .sun-icon { display: block; }
+html:not([data-theme="light"]) .moon-icon { display: none; }
 /* Glass Cards */
 .project-card,
 .resource-card,
