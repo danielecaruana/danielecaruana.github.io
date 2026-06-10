@@ -74,6 +74,84 @@ body {
     --border: color-mix(in srgb, white 8%, transparent);
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
+
+/* ========================================== */
+/* Asymmetric Layout & Optical Rail System   */
+/* ========================================== */
+
+@media (min-width: 768px) {
+    /* Keep titles anchored cleanly as you scroll past long sections */
+    .sticky-title {
+        position: sticky;
+        top: 7rem;
+        text-align: right;
+    }
+
+    /* The Rail Container ensures perfect centering between columns */
+    .optical-rail-container {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        min-height: 150px;
+    }
+
+    /* The fading laser effect using a linear gradient mask */
+    .laser-rail {
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            var(--border) 15%,
+            var(--border) 85%,
+            transparent 100%
+        );
+        transition: background 0.3s ease;
+    }
+
+    /* Subtle light interaction: illuminate the rail when hovering a section */
+    .group\/section:hover .laser-rail {
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            var(--accent) 30%,
+            var(--accent) 70%,
+            transparent 100%
+        );
+    }
+}
+
+/* ========================================== */
+/* Elevating the Glassmorphism & Depth       */
+/* ========================================== */
+
+.project-card,
+.toolkit-card,
+.timeline-content,
+.resource-item {
+    background: var(--surface-1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* A sharp "specular reflection" on the top border makes it look like real cut glass */
+    border: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm), 0 0 0 0 transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Interactive Glowing Depth on Hover */
+.project-card:hover,
+.toolkit-card:hover,
+.resource-item:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+    /* Soft light injection under the card matching your theme accent */
+    box-shadow: var(--shadow-sm), 0 10px 30px -10px var(--accent-soft);
+}
 /* ============================= */
 /* Loading States                */
 /* ============================= */
