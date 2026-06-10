@@ -731,7 +731,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start fetching data as soon as the page loads
     fetchPublications();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
+    // Your other functions like fetchPublications() go here...
+});
 
+function initThemeToggle() {
+    const toggleButton = document.getElementById('theme-toggle');
+    
+    if (!toggleButton) return;
+
+    toggleButton.addEventListener('click', () => {
+        // Read current state from the <html> element
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Apply the updated theme
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        // Save choice locally so it persists across page reloads
+        localStorage.setItem('theme', newTheme);
+    });
+}
 async function fetchPublications() {
     const container = document.getElementById('publications-content');
 
