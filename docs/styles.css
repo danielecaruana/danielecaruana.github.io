@@ -196,7 +196,7 @@ body {
 
 
 .about-editorial-layout {
-    max-width: 48rem !important;
+    max-width: 100% !important; /* This removes the narrow column limit */
     margin-left: auto !important;
     margin-right: auto !important;
 }
