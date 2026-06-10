@@ -21,11 +21,22 @@
 </head>
 <body class="bg-global-bg text-global-text antialiased">
     <!-- Fixed Header -->
-   <header id="main-header" class="group">
+    <header id="main-header" class="group">
         <div class="header-grid">
             <a href="#" class="group header-logo flex items-center gap-3" aria-label="Home">
                 <svg aria-hidden="true" class="h-10 w-10 sm:h-12 sm:w-12 transition-transform hover:scale-105" fill="none" focusable="false" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-                    [YOUR FULL SVG CODE HERE]
+                    <!-- Laser core / Beam emitter graphic -->
+                    <circle cx="400" cy="400" r="60" fill="var(--accent)" opacity="0.3"/>
+                    <circle cx="400" cy="400" r="25" fill="var(--accent)"/>
+                    <!-- Optical path interference rings -->
+                    <circle cx="400" cy="400" r="140" stroke="var(--text)" stroke-width="3" stroke-dasharray="12 12" opacity="0.4"/>
+                    <circle cx="400" cy="400" r="220" stroke="var(--border)" stroke-width="2" opacity="0.6"/>
+                    <circle cx="400" cy="400" r="300" stroke="var(--border)" stroke-width="1" stroke-dasharray="6 4" opacity="0.3"/>
+                    <!-- Asymmetric structural beam axis -->
+                    <line x1="120" y1="400" x2="680" y2="400" stroke="var(--text)" stroke-width="2" opacity="0.2"/>
+                    <line x1="400" y1="120" x2="400" y2="680" stroke="var(--text)" stroke-width="2" opacity="0.2"/>
+                    <!-- Metrology phase ticks -->
+                    <path d="M 400 60 L 400 90 M 400 710 L 400 740 M 60 400 L 90 400 M 710 400 L 740 400" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
                 </svg>
                 
                 <div class="header-title hidden sm:block">
@@ -34,373 +45,391 @@
             </a>
 
             <nav class="mobile-nav-menu header-nav hidden sm:flex sm:flex-row sm:items-center" id="navigation-menu">
+                <a href="#about">Me</a>
                 <a href="#publications">Publications</a>
                 <a href="#toolkit">Toolkit</a>
-                <a href="#resources">Resources</a>
                 <a href="#resume">CV</a>
-                <a href="#about">Me</a>
+                <a href="#resources">Resources</a>
             </nav>
 
             <div class="header-controls flex items-center gap-3">
                 <button id="theme-toggle" aria-label="Toggle Theme" class="theme-toggle-btn">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    </button>
-                </div>
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
-<!-- Main Content -->
-    
-<main class="mx-auto max-w-4xl px-4 sm:px-8">
+    <!-- Main Content Grid Wrapper -->
+    <main class="mx-auto max-w-4xl px-4 sm:px-8">
         
-<section id="hero" class="hero-section mb-16">
-    <div class="hero-grid">
-        <div class="hero-text">
-            <div class="hero-badge">MSc Researcher</div>
-            <h1 class="hero-title">
-                Sensing the Earth through<br>
-                <span class="text-accent">Quantum Optics.</span>
-            </h1>
-            <p class="hero-subtitle">
-                Hi, I'm Daniele Caruana. I research quantum optical systems and work on sensing technologies for applied geophysics at UoM.
-            </p>
-            <div class="hero-actions mb-6">
-                <a href="#publications" class="btn-primary">View Publications</a>
-                <a href="#resume" class="btn-secondary">View CV</a>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section mb-16">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge">MSc Researcher</div>
+                    <h1 class="hero-title">
+                        Sensing the Earth through<br>
+                        <span class="text-accent">Quantum Optics.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hi, I'm Daniele Caruana. I research quantum optical systems and work on sensing technologies for applied geophysics at UoM.
+                    </p>
+                    <div class="hero-actions mb-6">
+                        <a href="#publications" class="btn-primary">View Publications</a>
+                        <a href="#resume" class="btn-secondary">View CV</a>
+                    </div>
+                    
+                    <div class="academic-links flex gap-4 mt-6">
+                        <a href="https://scholar.google.com/citations?user=XZ3ig44AAAAJ" target="_blank" aria-label="Google Scholar" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                        </a>
+                        
+                        <a href="https://orcid.org/0009-0001-3285-5797" target="_blank" aria-label="ORCID" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-1.739 5.016-5.358 5.016h-3.886V7.416zm1.444 1.303v7.444h2.297c2.836 0 3.844-2.121 3.844-3.718 0-2.439-1.588-3.726-3.858-3.726h-2.283z"/></svg>
+                        </a>
+                    
+                        <a href="https://linkedin.com/in/daniele-caruana/" target="_blank" aria-label="LinkedIn" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+
+                        <a href="mailto:daniele.caruana@um.edu.mt" aria-label="Email" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual-container">
+                    <div class="frosted-backdrop"></div>
+                    <div class="profile-photo-wrapper">
+                        <img src="assets/photo.jpg" alt="Daniele Caruana - Profile Photo" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- About Section -->
+        <section id="about" class="group/section mb-16 scroll-mt-24 grid grid-cols-1 md:grid-cols-[180px_40px_1fr] gap-6 items-start">
+            <!-- Left Rail Anchor -->
+            <div class="prose sticky-title">
+                <h2 class="m-0 border-none pb-0">About Me</h2>
             </div>
             
-            <div class="academic-links flex gap-4 mt-6">
-                <a href="https://scholar.google.com/citations?user=XZ3ig44AAAAJ" target="_blank" aria-label="Google Scholar" class="social-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                </a>
-                
-                <a href="https://orcid.org/0009-0001-3285-5797" target="_blank" aria-label="ORCID" class="social-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-1.739 5.016-5.358 5.016h-3.886V7.416zm1.444 1.303v7.444h2.297c2.836 0 3.844-2.121 3.844-3.718 0-2.439-1.588-3.726-3.858-3.726h-2.283z"/></svg>
-                </a>
+            <!-- Middle Rail Spine -->
+            <div class="hidden md:flex optical-rail-container">
+                <div class="laser-rail"></div>
+            </div>
             
-                <a href="https://linkedin.com/in/daniele-caruana/" target="_blank" aria-label="LinkedIn" class="social-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-
-                <!-- Direct Email -->
-                <a href="mailto:daniele.caruana@um.edu.mt" aria-label="Email" class="social-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </a>
+            <!-- Right Content Container -->
+            <div class="project-card m-0">
+                <div class="prose">
+                    <p>
+                        Hi! I'm Daniele. I am an MSc research student in Quantum Optics with the University of Malta's Quantumalta Group, working under the supervision of Prof. André Xuereb. 
+                    </p>
+                    <p>
+                        Currently, I am working as a Research Officer in <a href="https://senseiproject.eu/" target="_blank" class="text-accent hover:underline">Project SENSEI</a>, where my focus is on developing metrological and signal processing techniques tailored for geophysical applications. I also work as a teaching assistant and laboratory demonstrator for undergraduate Experimental Physics modules.
+                    </p>
+                    <p>
+                        More generally, my interests lie at the intersection of sensing technologies, quantum-enhanced optics, and instrumentation design. I am fascinated by how these frameworks can be deployed across diverse industries and research horizons—spanning everything from fundamental physics and geophysics to unexpected, interdisciplinary fields like archaeology, which I find, frankly, really cool.
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
+               
+        <hr class="section-divider">
 
-        <div class="hero-visual-container">
-            <div class="frosted-backdrop"></div>
+        <!-- Publications Section -->
+        <section id="publications" class="group/section mb-16 scroll-mt-24 grid grid-cols-1 md:grid-cols-[180px_40px_1fr] gap-6 items-start">
+            <!-- Left Rail Anchor -->
+            <div class="prose sticky-title">
+                <h2 class="m-0 border-none pb-0">Publications</h2>
+                <p class="text-xs opacity-75 mt-2 line-clamp-3">A collection of recent peer-reviewed articles and abstract proceedings.</p>
+            </div>
             
-            <div class="profile-photo-wrapper">
-                <img src="assets/photo.jpg" alt="Daniele Caruana - Profile Photo" class="hero-image">
+            <!-- Middle Rail Spine -->
+            <div class="hidden md:flex optical-rail-container">
+                <div class="laser-rail"></div>
             </div>
-        </div>
-    </div>
-</section>
-
-        <!-- News Section -->
-        <!-- <section id="news" class="mb-16">
-            <div class="prose" id="news-content">
-                <div class="loading-spinner">Loading news content...</div>
-            </div>
-        </section> -->
-<hr class="section-divider">
-
-
-<!-- About Section -->
-<section id="about" class="mb-16 scroll-mt-24">
-    <div class="prose mb-8">
-        <h2>About Me</h2>
-    </div>
-    
-    <div class="project-card">
-        <div class="prose">
-            <p>
-                Hi! I'm Daniele. I am an MSc research student in Quantum Optics with the University of Malta's Quantumalta Group, working under the supervision of Prof. André Xuereb. 
-            </p>
-            <p>
-                Currently, I am working as a Research Officer in <a href="https://senseiproject.eu/" target="_blank" class="text-accent hover:underline">Project SENSEI</a>, where my focus is on developing metrological and signal processing techniques tailored for geophysical applications. I also work as a teaching assistant and laboratory demonstrator for undergraduate Experimental Physics modules.
-            </p>
-            <p>
-                More generally, my interests lie at the intersection of sensing technologies, quantum-enhanced optics, and instrumentation design. I am fascinated by how these frameworks can be deployed across diverse industries and research horizons—spanning everything from fundamental physics and geophysics to unexpected, interdisciplinary fields like archaeology, which I find, frankly, really cool.
-            </p>
-        </div>
-    </div>
-</section>
-       
-<hr class="section-divider">
-<!-- Publications Section -->
-<section id="publications" class="mb-16 scroll-mt-24">
-            <div class="prose mb-8">
-                <h2>Selected Publications</h2>
-                <p>A collection of my recent articles and conference proceedings.</p>
-            </div>
-            <div id="publications-content">
+            
+            <!-- Right Content Container -->
+            <div id="publications-content" class="w-full">
                 <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
             </div>
         </section>
-       
-       <hr class="section-divider">
-        <section id="toolkit" class="mb-16 scroll-mt-24">
-        <div class="prose mb-8">
-            <h2>Research Toolkit</h2>
-            <p>A multidisciplinary stack spanning quantum simulation, theoretical phsyics, and electronics modelling.</p>
-        </div>
+               
+        <hr class="section-divider">
 
-
-        <div class="toolkit-grid">
+        <!-- Toolkit Section -->
+        <section id="toolkit" class="group/section mb-16 scroll-mt-24 grid grid-cols-1 md:grid-cols-[180px_40px_1fr] gap-6 items-start">
+            <!-- Left Rail Anchor -->
+            <div class="prose sticky-title">
+                <h2 class="m-0 border-none pb-0">Research Toolkit</h2>
+                <p class="text-xs opacity-75 mt-2">A multidisciplinary stack spanning quantum simulation, physics engines, and lab modeling systems.</p>
+            </div>
             
-            <!-- Column 1: Computational -->
-            <div class="toolkit-card">
-                <h3>Computational</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">QuTiP</span>
-                    <span class="skill-tag">Data Analysis & Engineering</span>
-                    <span class="skill-tag">Numerical Simulation</span>
+            <!-- Middle Rail Spine -->
+            <div class="hidden md:flex optical-rail-container">
+                <div class="laser-rail"></div>
+            </div>
+            
+            <!-- Right Content Container -->
+            <div class="toolkit-grid w-full mt-0">
+                <!-- Column 1: Computational -->
+                <div class="toolkit-card">
+                    <h3>Computational</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">QuTiP</span>
+                        <span class="skill-tag">Data Analysis & Engineering</span>
+                        <span class="skill-tag">Numerical Simulation</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Physics & Experimental -->
+                <div class="toolkit-card">
+                    <h3>Physics & Optics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Electromagnetism</span>
+                        <span class="skill-tag">Optics</span>
+                        <span class="skill-tag">Atomic Physics</span>
+                        <span class="skill-tag">Quantum Mechanics</span>
+                        <span class="skill-tag">Quantum Optics</span>
+                        <span class="skill-tag">Interferometry</span>
+                        <span class="skill-tag">Single-Photon Detection</span>
+                        <span class="skill-tag">QKD</span>
+                        <span class="skill-tag">Optical Fibers</span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Engineering & Modeling -->
+                <div class="toolkit-card">
+                    <h3>Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CST Studio Suite</span>
+                        <span class="skill-tag">CAD Modeling</span>
+                        <span class="skill-tag">Signal Processing</span>
+                    </div>
                 </div>
             </div>
+        </section>
+               
+        <hr class="section-divider">
 
-        <!-- Column 2: Physics & Experimental -->
-        <div class="toolkit-card">
-            <h3>Physics & Optics</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Electromagnetism</span>
-                <span class="skill-tag">Optics</span>
-                <span class="skill-tag">Atomic Physics</span>
-                <span class="skill-tag">Quantum Mechanics</span>
-                <span class="skill-tag">Quantum Optics</span>
-                <span class="skill-tag">Interferometry</span>
-                <span class="skill-tag">Single-Photon Detection</span>
-                <span class="skill-tag">QKD</span>
-                <span class="skill-tag">Optical Fibers</span>
-
+        <!-- CV / Resume Section -->
+        <section id="resume" class="group/section mb-16 scroll-mt-24 grid grid-cols-1 md:grid-cols-[180px_40px_1fr] gap-6 items-start">
+            <!-- Left Rail Anchor -->
+            <div class="prose sticky-title">
+                <h2 class="m-0 border-none pb-0">Experience</h2>
+                <p class="text-xs opacity-75 mt-2">A chronological track through academic research milestones and technical roles.</p>
             </div>
-        </div>
-
-        <!-- Column 3: Engineering & Modeling -->
-        <div class="toolkit-card">
-            <h3>Engineering</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">CST Studio Suite</span>
-                <span class="skill-tag">CAD Modeling</span>
-                <span class="skill-tag">Signal Processing</span>
+            
+            <!-- Middle Rail Spine -->
+            <div class="hidden md:flex optical-rail-container">
+                <div class="laser-rail"></div>
             </div>
-        </div>
+            
+            <!-- Right Content Container -->
+            <div class="w-full">
+                <div class="timeline-container mt-0">
+                    
+                    <!-- Timeline Item 1: MSc Education -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Feb 2026 — Present</div>
+                        <div class="timeline-content">
+                            <h3>MSc in Physics</h3>
+                            <h4>University of Malta</h4>
+                            <p>Thesis: Quantum Non-Reciprocity in Interferometric Systems.</p>
+                        </div>
+                    </div>
 
-    </div>
-</section>
-       
-<hr class="section-divider">
-<!-- Resume Section -->
-<!-- Resume Section -->
-<!-- Resume Section -->
-<section id="resume" class="mb-16 scroll-mt-24">
-    <div class="prose mb-8">
-        <h2>Experience & Education</h2>
-        <p>A chronological path through my academic research milestones and technical engineering roles.</p>
-    </div>
+                    <!-- Timeline Item 2: Teaching Assistant -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Oct 2025 — Present</div>
+                        <div class="timeline-content">
+                            <h3>Lab Demonstrator & Teaching Assistant</h3>
+                            <h4>University of Malta</h4>
+                            <p>Lab demonstrator and TA for Experimental Physics modules in undergraduate Physics courses.</p>
+                        </div>
+                    </div>
 
-    <div class="timeline-container">
+                    <!-- Timeline Item 3: Research Officer -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Jul 2025 — Present</div>
+                        <div class="timeline-content">
+                            <h3>Research Officer | Project SENSEI</h3>
+                            <h4>University of Malta</h4>
+                            <p>Designing and implementing signal analysis solutions for fiber-optic geophysical sensing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4: Research Assistant -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Jun 2025 — Sep 2025</div>
+                        <div class="timeline-content">
+                            <h3>Research Assistant</h3>
+                            <h4>University of Malta (Electromagnetics Research Group)</h4>
+                            <p>Performed preliminary data analysis for research on microwave electromagnetic monitoring of blood parameters using dielectric properties as potential clinical biomarkers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5: Data Engineer -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Jun 2023 — Sep 2023</div>
+                        <div class="timeline-content">
+                            <h3>Junior Assistant | Data Engineer</h3>
+                            <h4>Malta Financial Services Authority</h4>
+                            <p>Automation and analysis of financial data regulation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 6: Lab Assistant Intern -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Jul 2022 — Sep 2022</div>
+                        <div class="timeline-content">
+                            <h3>Lab Assistant (Internship)</h3>
+                            <h4>University of Malta (Electromagnetics Research Group)</h4>
+                            <p>Prepared and measured lab-grade fluids and biological mimics for biomedical applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 7: Business Analyst Intern -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div class="timeline-date">Jul 2021 — Sep 2021</div>
+                        <div class="timeline-content">
+                            <h3>Junior Business Analyst (Internship)</h3>
+                            <h4>Insignia</h4>
+                            <p>Conducted quality assurance for mobile and web applications in the finance and luxury credit card sectors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV Download Button -->
+                <div class="flex justify-center mt-8">
+                    <a href="assets/Daniele_Caruana_CV.pdf" target="_blank" class="btn-secondary">
+                        Download Full CV (PDF) &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Resources Section -->
+        <section id="resources" class="group/section mb-16 scroll-mt-24 grid grid-cols-1 md:grid-cols-[180px_40px_1fr] gap-6 items-start">
+            <!-- Left Rail Anchor -->
+            <div class="prose sticky-title">
+                <h2 class="m-0 border-none pb-0">Resources</h2>
+                <p class="text-xs opacity-75 mt-2">Open repositories, mathematical notebooks, and presentation slide exports.</p>
+            </div>
+            
+            <!-- Middle Rail Spine -->
+            <div class="hidden md:flex optical-rail-container">
+                <div class="laser-rail"></div>
+            </div>
+            
+            <!-- Right Content Container -->
+            <div class="resources-list w-full mt-0">
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <span class="resource-type">Code / Simulation</span>
+                        <span class="resource-title">Quantum State Tomography Notebooks (Python/QuTiP)</span>
+                    </div>
+                    <a href="#" target="_blank" class="resource-link">Repository &rarr;</a>
+                </div>
         
-        <!-- Timeline Item 1: MSc Education -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Graduation Cap Icon -->
-                <svg viewBox="0 0 24 24">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
-                </svg>
-            </div>
-            <div class="timeline-date">Feb 2026 — Present</div>
-            <div class="timeline-content">
-                <h3>MSc in Physics</h3>
-                <h4>University of Malta</h4>
-                <p>Thesis: Quantum Non-Reciprocity in Interferometric Systems.</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 2: Teaching Assistant -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Briefcase Icon (Academic Job) -->
-                <svg viewBox="0 0 24 24">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-            </div>
-            <div class="timeline-date">Oct 2025 — Present</div>
-            <div class="timeline-content">
-                <h3>Lab Demonstrator & Teaching Assistant</h3>
-                <h4>University of Malta</h4>
-                <p>Lab demonstrator and TA for Experimental Physics modules in undergraduate Physics courses.</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 3: Research Officer -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Atom/Research Icon -->
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="2"></circle>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
-                </svg>
-            </div>
-            <div class="timeline-date">Jul 2025 — Present</div>
-            <div class="timeline-content">
-                <h3>Research Officer | Project SENSEI</h3>
-                <h4>University of Malta</h4>
-                <p>Designing and implementing signal analysis solutions for fiber-optic geophysical sensing.</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 4: Research Assistant -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Atom/Research Icon -->
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="2"></circle>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
-                </svg>
-            </div>
-            <div class="timeline-date">Jun 2025 — Sep 2025</div>
-            <div class="timeline-content">
-                <h3>Research Assistant</h3>
-                <h4>University of Malta (Electromagnetics Research Group)</h4>
-                <p>Performed preliminary data analysis for research on microwave electromagnetic monitoring of blood parameters using dielectric properties as potential clinical biomarkers.</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 6: Data Engineer -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Briefcase Icon -->
-                <svg viewBox="0 0 24 24">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-            </div>
-            <div class="timeline-date">Jun 2023 — Sep 2023</div>
-            <div class="timeline-content">
-                <h3>Junior Assistant | Data Engineer</h3>
-                <h4>Malta Financial Services Authority</h4>
-                <p>Automation and analysis of financial data regulation.</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 7: Lab Assistant Intern -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Atom/Research Icon -->
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="2"></circle>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
-                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
-                </svg>
-            </div>
-            <div class="timeline-date">Jul 2022 — Sep 2022</div>
-            <div class="timeline-content">
-                <h3>Lab Assistant (Internship)</h3>
-                <h4>University of Malta (Electromagnetics Research Group)</h4>
-                <p>Prepared and measured lab-grade fluids and biological mimics for biomedical applications.</p>
-            </div>
-        </div>
-        <!-- Timeline Item 8: Business Analyst Intern -->
-        <div class="timeline-item">
-            <div class="timeline-icon" aria-hidden="true">
-                <!-- Briefcase Icon -->
-                <svg viewBox="0 0 24 24">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-            </div>
-            <div class="timeline-date">Jul 2021 — Sep 2021</div>
-            <div class="timeline-content">
-                <h3>Junior Business Analyst (Internship)</h3>
-                <h4>Insignia</h4>
-                <p>Conducted quality assurance for mobile and web applications in the finance and luxury credit card sectors.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- CV Download Button -->
-    <div class="flex justify-center mt-8">
-        <a href="assets/Daniele_Caruana_CV.pdf" target="_blank" class="btn-secondary">
-            Download Full CV (PDF) &rarr;
-        </a>
-    </div>
-</section>
-<hr class="section-divider">
-<!-- Resources Section -->
-<section id="resources" class="mb-16 scroll-mt-24">
-        <div class="prose mb-8">
-            <h2>Open Resources</h2>
-            <p>Supplementary materials, open data repositories, and seminar slides from my research projects.</p>
-        </div>
-    
-        <div class="resources-list">
-
-            
-            <div class="resource-item">
-                <div class="resource-info">
-                    <span class="resource-type">Code / Simulation</span>
-                    <span class="resource-title">Quantum State Tomography Notebooks (Python/QuTiP)</span>
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <span class="resource-type">Presentation</span>
+                        <span class="resource-title">Geophysical Sensing via Atom Interferometry — UoM Seminar Slides</span>
+                    </div>
+                    <a href="#" target="_blank" class="resource-link">Download PDF &rarr;</a>
                 </div>
-                <a href="#" target="_blank" class="resource-link">Repository &rarr;</a>
-            </div>
-    
-            <div class="resource-item">
-                <div class="resource-info">
-                    <span class="resource-type">Presentation</span>
-                    <span class="resource-title">Geophysical Sensing via Atom Interferometry — UoM Seminar Slides</span>
+        
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <span class="resource-type">Dataset</span>
+                        <span class="resource-title">High-Frequency Microwave Simulation Exports (CST Formats)</span>
+                    </div>
+                    <a href="#" target="_blank" class="resource-link">Access Data &rarr;</a>
                 </div>
-                <a href="#" target="_blank" class="resource-link">Download PDF &rarr;</a>
             </div>
-    
-            <div class="resource-item">
-                <div class="resource-info">
-                    <span class="resource-type">Dataset</span>
-                    <span class="resource-title">High-Frequency Microwave Simulation Exports (CST Formats)</span>
+        </section>
+               
+        <hr class="section-divider">
+
+        <!-- Footer -->
+        <footer class="mx-auto max-w-4xl px-4 sm:px-8 py-8 border-t border-[var(--border)] mt-12">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-muted">
+                <p>&copy; 2026 Daniele Caruana. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="mailto:daniele.caruana@um.edu.mt" class="hover:text-accent transition-colors">Email Me</a>
+                    <a href="#hero" class="hover:text-accent transition-colors">Back to Top &uarr;</a>
                 </div>
-                <a href="#" target="_blank" class="resource-link">Access Data &rarr;</a>
             </div>
-    
-        </div>
-    </section>
-       
-   <hr class="section-divider">
-    <!-- Footer -->
-       <footer class="mx-auto max-w-4xl px-4 sm:px-8 py-8 border-t border-[var(--border)] mt-12">
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-muted">
-            <p>&copy; 2026 Daniele Caruana. All rights reserved.</p>
-            <div class="flex gap-4">
-                <a href="mailto:your.email@um.edu.mt" class="hover:text-accent transition-colors">Email Me</a>
-                <a href="#hero" class="hover:text-accent transition-colors">Back to Top &uarr;</a>
-            </div>
-        </div>
-    </footer>
-    <div class="mx-auto max-w-3xl px-4 sm:px-8 py-8 text-center text-sm opacity-75">
-    </div>
+        </footer>
     </main>
     <script src="script.js"></script>
 </body>
