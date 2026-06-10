@@ -74,7 +74,38 @@ body {
     --border: color-mix(in srgb, white 8%, transparent);
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
+/* ============================= */
+/* Loading States                */
+/* ============================= */
 
+.skeleton-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    height: 140px; /* Matches roughly the size of your real cards */
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent-soft) 50%,
+        transparent 100%
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
 /* ============================= */
 /* Utilities                     */
 /* ============================= */
