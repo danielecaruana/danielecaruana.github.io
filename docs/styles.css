@@ -193,12 +193,37 @@ body {
 .gap-4 { gap: 1rem; }
 .gap-6 { gap: 1.5rem; }
 
-.about-header-accent h2 {
-    border-bottom: 2px solid var(--accent) !important;
-    padding-bottom: 0.75rem;
+.about-editorial-layout {
+    max-width: 48rem; /* The perfect reading width */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Centers the heading */
+}
+
+.about-editorial-layout p {
+    text-align: left; /* Keeps your paragraphs easily readable */
+    font-size: 1.1rem; /* Slightly larger text to fill the space nicely */
+    line-height: 1.8;
+}
+
+.about-editorial-layout h2 {
+    border-bottom: none; /* Removes the distracting line */
     margin-bottom: 2rem;
     display: inline-block;
-    width: 100%;
+    position: relative;
+}
+
+/* Adds a subtle accent underline directly under the title */
+.about-editorial-layout h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
 }
 
 /* ============================= */
