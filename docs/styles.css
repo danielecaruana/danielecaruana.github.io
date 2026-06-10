@@ -75,51 +75,6 @@ body {
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* ========================================== */
-/* Asymmetric Layout & Optical Rail System   */
-/* ========================================== */
-
-@media (min-width: 768px) {
-    /* Keep titles anchored cleanly as you scroll past long sections */
-    .sticky-title {
-        position: sticky;
-        top: 7rem;
-        text-align: right;
-    }
-
-    /* The Rail Container ensures perfect centering between columns */
-    .optical-rail-container {
-        display: flex;
-        justify-content: center;
-        height: 100%;
-        min-height: 150px;
-    }
-
-    /* The fading laser effect using a linear gradient mask */
-    .laser-rail {
-        width: 1px;
-        height: 100%;
-        background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            var(--border) 15%,
-            var(--border) 85%,
-            transparent 100%
-        );
-        transition: background 0.3s ease;
-    }
-
-    /* Subtle light interaction: illuminate the rail when hovering a section */
-    .group\/section:hover .laser-rail {
-        background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            var(--accent) 30%,
-            var(--accent) 70%,
-            transparent 100%
-        );
-    }
-}
 
 /* ========================================== */
 /* Elevating the Glassmorphism & Depth       */
