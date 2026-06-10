@@ -194,6 +194,48 @@ body {
 .gap-6 { gap: 1.5rem; }
 
 /* ============================= */
+/* Publications Section Matrix   */
+/* ============================= */
+
+/* This container organizes your publications into structured cards */
+.publications-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically on small screens */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* On desktop displays, split them into elegant columns or clean rows */
+@media (min-width: 768px) {
+    .publications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Applies your premium glassmorphism theme styling to each individual paper */
+.publication-card {
+    background: var(--surface-1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Interactive glow when a peer hovers over your paper */
+.publication-card:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm), 0 10px 30px -10px var(--accent-soft);
+}
+/* ============================= */
 /* Typography / Prose            */
 /* ============================= */
 
